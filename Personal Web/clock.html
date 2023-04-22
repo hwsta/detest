@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <div class="box">
+        <!--刻度线-->
+        <div class="line line0"></div>
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+        <div class="line line00"></div>
+        <div class="line line11"></div>
+        <div class="line line22"></div>
+        <div class="line line33"></div>
+        <div class="line line44"></div>
+        <div class="line line55"></div>
+        <!--指针-->
+        <div class="pointer hour" id="hour"></div>
+        <div class="pointer min" id="min"></div>
+        <div class="pointer sec" id="sec"></div>
+        <!--螺丝-->
+        <div class="dot"></div>
+    </div>
+    <!--上方边框的阴影-->
+    <div class="box1"></div>
+    <!--js实现动画-->
+    <script>
+        let oSec=document.getElementById('sec')
+        let oMin=document.getElementById('min')
+        let oHour=document.getElementById('hour')
+
+        //动画函数
+        function toTime(){
+            //获取实时时间
+            let date=new Date()
+            let iSec=date.getSeconds()
+            let iMin=date.getMinutes()+iSec/60
+            let iHour=date.getHours()+iMin/60
+
+            oSec.style.transform='translate(-50%) rotate('+(iSec*6)+'deg)'
+            oMin.style.transform='translate(-50%) rotate('+(iMin*6)+'deg)'
+            oHour.style.transform='translate(-50%) rotate('+(iHour*6)+'deg)'
+        }
+        //定时器调用
+        setInterval(toTime,1000)
+
+    </script>
+</body>
+</html>

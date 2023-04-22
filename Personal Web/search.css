@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #91defe, #99c0f9, #bdb6ec, #d7b3e3, #efb3d5,#f9bccc);    /*设置背景为渐变颜色*/
+    overflow: hidden;
+}
+.searchBox{
+    position: relative;
+    width: 400px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    top:72px;
+}
+.searchBox input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top:30px;
+    border: none;
+    padding: 10px 25px;
+    outline: none;
+    font-size: 1.1em;
+    border-radius: 23px;
+    color: #555;
+    background-color: linear-gradient(#dbdae1,#a3aaba);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1),
+    15px 15px 15px rgba(0,0,0,0.1),
+    20px 20px 15px rgba(0,0,0,0.1),
+    30px 30px 15px rgba(0,0,0,0.1),
+    inset 1px 1px 2px #fff;
+}
+.searchBox button{
+    position: relative;
+    width:100px;
+    height: 50px;
+    left: 370px;
+    top:-20px;
+    border: none;
+    padding: 10px 25px;
+    outline: none;
+    font-size: 1.1em;
+    border-radius: 23px;
+    color: #555;
+    background-color: linear-gradient(#dbdae1,#a3aaba);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1),
+    15px 15px 15px rgba(0,0,0,0.1),
+    20px 20px 15px rgba(0,0,0,0.1),
+    30px 30px 15px rgba(0,0,0,0.1),
+    inset 1px 1px 2px #fff;
+}
+.searchBox button:hover{
+    box-shadow:inset 0 -4px 0 0 rgba(0,0,0,0.6),0 0 8px 0 rgba(0,0,0,0.5);
+}                          /*鼠标放按钮上时出现不同效果*/
+
+/* 小球 */
+.box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    left: 50%;
+    top: 290px;
+    transform: translate(-50%, -50%);
+}
+.ball {
+    animation: float 3.5s ease-in-out infinite;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    /* 为球的背景添加径向渐变，渐变中心在 77% 水平、30% 垂直位置 */
+    background: radial-gradient(circle at 77% 30%,
+            /* 渐变起点颜色为白色，半径为 5 像素 */
+            white 5px,
+            /* 渐变颜色从白色平滑过渡到淡蓝色，半径为 8% */
+            aqua 8%,
+            /* 渐变颜色从淡蓝色平滑过渡到深蓝色，半径为 60% */
+            darkblue 60%,
+            /* 渐变颜色从深蓝色平滑过渡到淡蓝色，半径为 100% */
+            aqua 100%);
+    /* 为球添加多重内阴影效果 */
+    /* 内部白色阴影，宽度 20 像素 */
+    box-shadow: inset 0 0 20px #fff,
+        /* 内部淡蓝色阴影，位置偏右 10 像素，宽度 46 像素 */
+        inset 10px 0 46px #eaf5fc,
+        /* 内部浅蓝色阴影，位置偏右 88 像素，宽度 60 像素 */
+        inset 88px 0px 60px #c2d8fe,
+        /* 内部淡橙色阴影，位置偏左上方，宽度 100 像素 */
+        inset -20px -60px 100px #fde9ea,
+        /* 内部淡橙色阴影，位置偏下方，宽度 140 像素 */
+        inset 0 50px 140px #fde9ea,
+        /* 外部白色阴影，宽度 90 像素 */
+        0 0 90px #fff;
+}
+
+.box:nth-child(2) {
+    z-index: -999;           /*调整图型的层级关系*/
+}
+
+.box:nth-child(2) .ball {
+    left: -80px;
+    top: 35px;
+    width: 100px;
+    height: 100px;
+    z-index: -999;
+    opacity: .5;
+}
+
+.box:nth-child(3) .ball {
+    left: 80px;
+    top: -80px;
+    width: 20px;
+    height: 20px;
+    opacity: .1;
+}
+
+.shadow {
+    background: #b490b27c;
+    width: 150px;
+    height: 40px;
+    top: 370px;
+    animation: expand 4s infinite;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.box:nth-child(2) .shadow {
+    width: 90px;
+    height: 20px;
+    top: 72.5%;
+    left: -75px;
+    opacity: .4;
+}
+
+/* 添加漂浮动画,缓慢升上去 */
+@keyframes float {
+    0% {
+        transform: translatey(0px) rotate(-10deg);
+    }
+
+    50% {
+        transform: translatey(-80px) rotate(10deg);
+    }
+
+    100% {
+        transform: translatey(0px) rotate(-10deg);
+    }
+}
+/* 从上面缓慢落下来 */
+@keyframes expand {
+
+    0%,
+    100% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+} 

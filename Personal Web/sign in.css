@@ -1,0 +1,61 @@
+body{
+    font-family: sans-serif;
+    background-image: url(166105.jpg);
+    background-repeat: no-repeat;
+    /* overflow: hidden;溢出隐藏 */
+    background-size: auto;
+}
+
+
+.container{
+    width: 350px;
+    height: 400px;
+    top: center;
+    margin: 7% auto;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.1);     
+    box-shadow: 0 0 17px #333;
+}
+
+.head{
+    text-align: center;
+    padding-top: 75px;
+}
+
+.header h1{
+    color: #bf43d8;
+    font-size: 45px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.main{
+    text-align: center;
+}
+
+.main input{
+    width: 300px;
+    height: 40px;
+    border: none;/*去除边框*/
+    border-radius:10px;
+    outline: none;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 40px;
+}
+.button{
+    background-color: #CC3366;
+    color: white;
+    width:80px;
+    height:30px;
+    position: center;
+    border:none;           /*不要边框*/
+    border-radius:10px;    /*四个角转为圆角*/
+    font-size: 15px;
+    
+}
+.button:hover{
+    box-shadow:inset 0 -4px 0 0 rgba(0,0,0,0.6),0 0 8px 0 rgb(0, 0, 0);
+}                          /*鼠标放按钮上时出现不同效果*/

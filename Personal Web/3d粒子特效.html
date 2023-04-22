@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <title>Document</title>
+</head>
+
+    
+<body>
+
+ <script>
+ function project3D(x,y,z,vars) {
+   var p,d;
+   x=vars.camX;
+   y=vars.camY-8;
+   z=vars.camZ
+   p=Math.atan(x,z);
+   d=Math.sqrt(x*x+z*z)
+   x=Math.sin(p-vars.yaw)*d;
+   z=Math.cos(p-vars.yaw)*d
+   p=Math.atan2(y,z);
+   d=Math.sqrt(y*y+z*z);
+   y=Math.sin(p-vars.pitch)*d;
+   z=Math.cos(p-vars.pitch)*d;
+   var rx1=-1000;
+   var rx2=1000;
+   var ry2=1;
+   var rx3=0;
+   var ry3=0;
+   var rx4=x;
+   var ry4=z;
+   var uc=(ry4-ry3)*(rx2-rx1)-(rx2-rx3)*(ry2-ry1);
+   var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+   var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+   if(!z)z=0.000000001;
+   if(ua>0&&ua<1&&ub>0&&ub<1){
+       return{
+           x:vars.cx+(rx1+ua*(rx2-rx1))*vars.scale,
+           y:vars.cy+y/z*vars.scale,
+           d:(x*x+y*y+z*z)
+        };
+    }else{
+        return{d:-1};
+    }
+
+            
+        }
+    </script>
+
+</body>
+</html>
